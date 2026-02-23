@@ -4,6 +4,8 @@ import App from './App.vue'
 import {router} from './router'
 import Toast from "vue-toastification";
 import {createPinia} from "pinia";
+import PrimeVue from 'primevue/config';
+import Aura from '@primeuix/themes/aura';
 const pinia = createPinia()
 import "vue-toastification/dist/index.css";
 
@@ -22,6 +24,16 @@ const options = {
     icon: true,
     rtl: false
 }
+ create.use(PrimeVue, {
+    theme: {
+        preset: Aura,
+        options: {
+            prefix: 'p',
+            darkModeSelector: 'system',
+            cssLayer: false
+        }
+    }
+});
 create.use(Toast,options)
 create.use(pinia)
 create.use(router)
